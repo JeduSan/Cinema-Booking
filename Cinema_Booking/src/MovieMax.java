@@ -46,12 +46,12 @@ public class MovieMax {
                 cinema.dottedBorder();
                 int opt = input.nextInt();
                 cinema.dottedBorder();
-
+                
                 if (opt == 1) {
-                    cinema.buyTicket(choice - 1);
-                    System.out.println("Press any key to continue...");
+                    // cinema.buyTicket(choice - 1);
+                    // System.out.println("Press any key to continue...");
                     input.nextLine();
-                    cinema.policy();
+                    // cinema.policy();
                     // cinema.seatSelection();
                     // SEAT SELECTION ------------------------------------------------ The function throws no lines found when using the seatSelection()
                     // SOLUTION: omit the function :)
@@ -59,6 +59,7 @@ public class MovieMax {
                     final int COLS = 21;
 
                     char[][] seats = new char[ROWS][COLS];
+                    String[] seatTmp = new String[5]; // store states of seats[][]
                     char seatLetter = 'A';
                     String tryAgain;
                     String seatChoice;
@@ -91,12 +92,15 @@ public class MovieMax {
 
                         seatChoice = (input.nextLine()).toUpperCase(); // accepts lower case
                         seatNum = Integer.parseInt(seatChoice.charAt(0) + ""); // extrcts index 0, the number
+                        seatTmp[counter] = seatChoice;
 
                         if (seatNum != 0) {
                             seatLetter = seatChoice.charAt(1); // extract seatChoice index 1, the letter
 
-                            if (seats[seatNum - 1][seatLetter - 65] != 'X')
+                            if (seats[seatNum - 1][seatLetter - 65] != 'X') {
                                 seats[seatNum - 1][seatLetter - 65] = 'X';
+                            
+                            }
                             else {
                                 System.out.println("Seat is already occupied!");
                                 break; // break out of the loop for now while there is no other solution
@@ -123,6 +127,19 @@ public class MovieMax {
                         input.nextLine(); // skips whitespace
                         counter++;
                     }
+                    
+                    cinema.policy();
+                    cinema.buyTicket(choice - 1);
+                    System.out.println("Booked Seats: ");
+                    for (String tmp : seatTmp) {
+                        if (tmp != null)
+                            System.out.println(tmp);
+                    }
+                    cinema.dottedBorder();
+                    // System.out.println("Press any key to continue...");
+                    // input.nextLine();
+                    
+                    
                 } else
                     continue;
                 //! SEAT SELECTION ------------------------------------------------
