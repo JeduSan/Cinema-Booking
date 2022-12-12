@@ -48,11 +48,7 @@ public class MovieMax {
                 cinema.dottedBorder();
                 
                 if (opt == 1) {
-                    // cinema.buyTicket(choice - 1);
-                    // System.out.println("Press any key to continue...");
                     input.nextLine();
-                    // cinema.policy();
-                    // cinema.seatSelection();
                     // SEAT SELECTION ------------------------------------------------ The function throws no lines found when using the seatSelection()
                     // SOLUTION: omit the function :)
                     final int ROWS = 10;
@@ -136,10 +132,6 @@ public class MovieMax {
                             System.out.println(tmp);
                     }
                     cinema.dottedBorder();
-                    // System.out.println("Press any key to continue...");
-                    // input.nextLine();
-                    
-                    
                 } else
                     continue;
                 //! SEAT SELECTION ------------------------------------------------
